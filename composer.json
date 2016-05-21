@@ -1,0 +1,25 @@
+{
+    "name": "timmcleod/laravel-view-model",
+    "type": "library",
+    "description": "View Models for Laravel 5.x",
+    "keywords": ["laravel","view","model"],
+    "homepage": "https://github.com/timmcleod/laravel-view-model",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim McLeod",
+            "email": "tim@timmcleod.com",
+            "homepage": "http://timmcleod.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/validation": "5.0.x|5.1.x|5.2.x"
+    },
+    "autoload": {
+        "psr-4": {
+            "TimMcLeod\\ViewModel": "src"
+        }
+    }
+}
