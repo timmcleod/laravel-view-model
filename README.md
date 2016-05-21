@@ -85,7 +85,9 @@ $vm = new EditProfileViewModel([
 return view('user.profile')->with('vm', $vm);
 ```
 
-When the new view model is instantiated, the data is validated using the rules defined in your view model class. 
+When the new view model is instantiated, the data is validated using the rules defined in your view model class. You can use any of the [available validation rules](https://laravel.com/docs/5.2/validation#available-validation-rules) defined in Laravel documentation.
+
+Three additional rules are also available: `instance_of`, `collection_of`, and `paginator_of`.
 
 ```php
 protected $rules = [
