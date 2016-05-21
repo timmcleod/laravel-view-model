@@ -8,7 +8,4 @@ class DummyClass extends BaseViewModel
 {
     /** @var array */
     protected $rules = [];
-
-    /** @var array */
-    protected $data = [];
 }
