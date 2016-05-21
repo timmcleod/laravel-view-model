@@ -1,4 +1,6 @@
-<?php namespace TimMcLeod\ViewModel;
+<?php
+
+namespace TimMcLeod\ViewModel;
 
 use Exception;
 

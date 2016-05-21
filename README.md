@@ -6,7 +6,7 @@ This package can be used to help you encapsulate, validate, and manipulate the d
 
 ### Purpose and Overview
 
-As the views in our applications grow more complex, they tend to require more data that needs to be presented in varying ways. As our view dependencies increase and the view files become more complex, it can be increasingly difficult to keep track of the data is required by the view.
+As the views in our applications grow more complex, they tend to require more data that needs to be presented in varying ways. As our view dependencies increase and the view files become more complex, it can be increasingly difficult to keep track of the data that is required by the view.
 
 View Models help by:
 
@@ -25,4 +25,4 @@ composer require timmcleod/laravel-view-model
 
 ### Basic Usage
 
-...
+To create a new view model, 

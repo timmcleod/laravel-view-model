@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use TimMcLeod\ViewModel\BaseViewModel;
+
+class DummyClass extends BaseViewModel
+{
+    /** @var array */
+    protected $rules = [];
+
+    /** @var array */
+    protected $data = [];
+}
