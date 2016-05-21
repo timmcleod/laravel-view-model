@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.5.9",
         "illuminate/validation": "~5.2",
-        "timmcleod/laravel-instance-validator": "dev-master"
+        "timmcleod/laravel-instance-validator": "~1.0"
     },
     "autoload": {
         "psr-4": {
