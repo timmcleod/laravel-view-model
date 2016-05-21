@@ -38,7 +38,7 @@ This command will place a new `EditProfileViewModel` class within your `app/View
 ```php
 <?php
 
-namespace Axis\ViewModels;
+namespace App\ViewModels;
 
 use TimMcLeod\ViewModel\BaseViewModel;
 
@@ -122,7 +122,7 @@ public function isSelectedTimezone(Timezone $timezone)
 ```
 <!-- Inside of user.profile view -->
 
-<select id="timezone" name="timezone" class="form-control">
+<select id="timezone" name="timezone">
     @foreach($vm->timezones as $timezone)
         <option value="{{$timezone->code}}" {{$vm->isSelectedTimezone($timezone) ? 'selected' : ''}}>{{$timezone->label}}</option>
     @endforeach
