@@ -35,7 +35,7 @@ php artisan make:view-model EditProfileViewModel
 
 This command will place a new `EditProfileViewModel` class within your `app/ViewModels` directory. If the directory doesn't exist, it will be created for you.
 
-```
+```php
 <?php
 
 namespace Axis\ViewModels;
@@ -61,7 +61,7 @@ This command will place a new `EditProfileViewModel` class within your `app/View
 
 Passing data into a view in a Laravel application is typically done this way:
 
-```
+```php
 return view('user.profile')->with([
     'timezones' => Timezone::all(),
     'states'    => State::all(),
@@ -74,7 +74,7 @@ Then, within the view, you have access to a variable called `$user`.
 
 To use view models, just create a new instance of a view model and pass the instance into the view. 
 
-```
+```php
 $vm = new EditProfileViewModel([
     'timezones' => Timezone::all(),
     'states'    => State::all(),
@@ -87,7 +87,7 @@ return view('user.profile')->with('vm', $vm);
 
 When the new view model is instantiated, the data is validated using the rules defined in your view model class. 
 
-```
+```php
 protected $rules = [
     'timezones' => 'required|collection_of:App\\Timezone',
     'states'    => 'required|collection_of:App\\State',
@@ -102,7 +102,7 @@ Within your views, you can access the data in your view model like this: `$vm->t
 
 You can also add your own methods to your view model to keep your view-specific logic bundled nicely with the data to keep your views clean.
 
-```
+```php
 // Inside of EditProfileViewModel class:
 
 /**
