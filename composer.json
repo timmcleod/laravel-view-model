@@ -21,5 +21,6 @@
         "psr-4": {
             "TimMcLeod\\": "src"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
