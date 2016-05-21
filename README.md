@@ -122,7 +122,7 @@ public function isSelectedTimezone(Timezone $timezone)
 
 <select id="timezone" name="timezone" class="form-control">
     @foreach($vm->timezones as $timezone)
-        <option value="{{$timezone->code}}" {{**$vm->isSelectedTimezone($timezone)** ? 'selected' : ''}}>{{$timezone->label}}</option>
+        <option value="{{$timezone->code}}" {{$vm->isSelectedTimezone($timezone) ? 'selected' : ''}}>{{$timezone->label}}</option>
     @endforeach
 </select>
 ```
