@@ -24,7 +24,7 @@ composer require timmcleod/laravel-view-model
 ```
 
 Then, register the following service providers in your app config (`project/config/app.php`) by adding them to the `providers` array: 
-```
+```php
 'providers' => [
     ...
     TimMcLeod\InstanceValidator\InstanceValidatorServiceProvider::class,
