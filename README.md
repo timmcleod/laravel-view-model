@@ -1,6 +1,6 @@
 ## View Models for Laravel
 
-###### Clean up those messy views using View Models
+###### Clean up messy views using View Models
 
 This package can be used to help you encapsulate, validate, and manipulate the data that is required by each of the views in your Laravel 5.x applications.
 
@@ -59,19 +59,6 @@ This command will place a new `EditProfileViewModel` class within your `app/View
 
 ### Basic Usage
 
-Passing data into a view in a Laravel application is typically done this way:
-
-```php
-return view('user.profile')->with([
-    'timezones' => Timezone::all(),
-    'states'    => State::all(),
-    'cities'    => City::all(),
-    'user'      => Auth::user()
-]);
-```
-
-Then, within the view, you have access to a variable called `$user`.
-
 To use view models, just create a new instance of a view model and pass the instance into the view. 
 
 ```php
@@ -119,7 +106,7 @@ public function isSelectedTimezone(Timezone $timezone)
 }
 ```
 
-```
+```html
 <!-- Inside of user.profile view -->
 
 <select id="timezone" name="timezone">
@@ -128,6 +115,50 @@ public function isSelectedTimezone(Timezone $timezone)
     @endforeach
 </select>
 ```
+
+Or maybe you want to create a list of checkboxes for cities in 2 separate columns in this particular view. You could do something like this:
+
+```php
+// Inside of EditProfileViewModel class:
+
+/**
+ * Returns the first half of cities from the cities array.
+ *
+ * @return array
+ */
+public function citiesCol1()
+{
+    $len = count($this->cities);
+    return $this->cities->slice(0, round($len / 2));
+}
+
+/**
+ * Returns the second half of cities from the cities array.
+ *
+ * @return array
+ */
+public function citiesCol2()
+{
+    $len = count($this->cities);
+    return $this->cities->slice(round($len / 2));
+}
+```
+
+```html
+<!-- Inside of user.profile view -->
+
+<!-- Inside markup for column 1 -->
+@foreach($vm->citiesCol1() as $city)
+    <label><input name="cities[]" type="checkbox" value="{{$city->id}}">{{"$city->name, $city->state_code"}}</label>
+@endforeach
+    
+<!-- Inside markup for column 2 -->
+@foreach($vm->citiesCol2() as $city)
+    <label><input name="cities[]" type="checkbox" value="{{$city->id}}"> {{"$city->name, $city->state_code"}}</label>
+@endforeach
+```
+
+As you can see, View Models allow us to bundle the view data with the methods required to manipulate the data in the context of the view.
 
 ## License
 
