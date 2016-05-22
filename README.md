@@ -23,7 +23,14 @@ Require this package with composer:
 composer require timmcleod/laravel-view-model
 ```
 
-Then, register the following service provider: `TimMcLeod\ViewModel\ViewModelServiceProvider`
+Then, register the following service providers in your app config (`project/config/app.php`) by adding them to the `providers` array: 
+```
+'providers' => [
+    ...
+    TimMcLeod\InstanceValidator\InstanceValidatorServiceProvider::class,
+    TimMcLeod\ViewModel\ViewModelServiceProvider::class,
+]
+```
 
 ### Getting Started
 
