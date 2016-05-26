@@ -56,6 +56,6 @@ class ViewModelMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\ViewModels';
+        return $rootNamespace.'\Http\ViewModels';
     }
 }
