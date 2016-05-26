@@ -40,12 +40,12 @@ After you have registered the `ViewModelServiceProvider`, a new Artisan command 
 php artisan make:view-model EditProfileViewModel
 ```
 
-This command will place a new `EditProfileViewModel` class within your `app/ViewModels` directory. If the directory doesn't exist, it will be created for you.
+This command will place a new `EditProfileViewModel` class within your `app/Http/ViewModels` directory. If the directory doesn't exist, it will be created for you.
 
 ```php
 <?php
 
-namespace App\ViewModels;
+namespace App\Http\ViewModels;
 
 use TimMcLeod\ViewModel\BaseViewModel;
 
@@ -62,7 +62,7 @@ If you prefer to subgroup your view models, you can generate them this way:
 php artisan make:view-model User/EditProfileViewModel
 ```
 
-This command will place a new `EditProfileViewModel` class within your `app/ViewModels/User` directory.
+This command will place a new `EditProfileViewModel` class within your `app/Http/ViewModels/User` directory.
 
 ### Basic Usage
 
