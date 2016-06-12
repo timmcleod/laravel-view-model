@@ -54,4 +54,41 @@ abstract class BaseViewModel
             throw new Exception('Invalid data: ' . $validator->getMessageBag()->first());
         }
     }
+
+    /**
+     * Returns true if any "old" inputs exist.
+     *
+     * @return bool
+     */
+    public function hasOldInput()
+    {
+        return count(old()) > 0;
+    }
+
+    /**
+     * Returns true if the given checkbox should be checked.
+     *
+     * @param string $field
+     * @param bool   $default
+     * @return bool
+     */
+    public function checkboxIsChecked($field, $default)
+    {
+        // if old input exists, use it the old value, otherwise, use the default
+        if ($this->hasOldInput()) return old($field) === 'on';
+
+        return !!$default;
+    }
+
+    /**
+     * Returns 'checked' if the given checkbox should be checked, otherwise, returns ''.
+     *
+     * @param string $field
+     * @param bool   $default
+     * @return string
+     */
+    public function checkboxChecked($field, $default)
+    {
+        return $this->checkboxIsChecked($field, $default) ? 'checked' : '';
+    }
 }
