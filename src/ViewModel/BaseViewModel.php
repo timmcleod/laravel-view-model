@@ -83,6 +83,10 @@ abstract class BaseViewModel
     /**
      * Returns 'checked' if the given checkbox should be checked, otherwise, returns ''.
      *
+     * Example in template:
+     * <input name="login_enabled" type="checkbox"
+     *        {{$vm->checkboxChecked('login_enabled', $vm->user->login_enabled)}}>
+     *
      * @param string $field
      * @param bool   $default
      * @return string
@@ -90,5 +94,37 @@ abstract class BaseViewModel
     public function checkboxChecked($field, $default)
     {
         return $this->checkboxIsChecked($field, $default) ? 'checked' : '';
+    }
+
+    /**
+     * Returns true if the given array checkbox should be checked.
+     *
+     * @param string $field
+     * @param string $value
+     * @param array  $default
+     * @return bool
+     */
+    public function checkboxInArrayIsChecked($field, $value, $default = [])
+    {
+        if ($this->hasOldInput()) return in_array($value, old($field, []));
+
+        return in_array($value, $default);
+    }
+
+    /**
+     * Returns 'checked' if the given array checkbox should be checked, otherwise, returns ''.
+     *
+     * Example in template:
+     * <input name="cities[]" type="checkbox" value="{{$city->id}}"
+     *        {{$vm->checkboxInArrayChecked('cities', $city->id, $defaultCheckedCityIds)}}>
+     *
+     * @param string $field
+     * @param string $value
+     * @param array  $default
+     * @return string
+     */
+    public function checkboxInArrayChecked($field, $value, $default = [])
+    {
+        return $this->checkboxInArrayIsChecked($field, $value, $default) ? 'checked' : '';
     }
 }
